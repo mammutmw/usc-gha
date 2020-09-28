@@ -4,16 +4,38 @@ A Github action for using the upload service client, `usc`.
 
 ## Setup
 
-- Add the workflow to `.github/workflows/main.yml`
+- Add an action below to your workflow.
 - Change the code to fit your project and paths.
 - Add the required secrets, the AWS keys, to your Github project.
 - Push it, then watch the Action tab on Github.
 - Debug whatever problems you get.
 
 
+### Action
+
+```yaml
+# Deploy contents of build directory to dev
+- name: Deploy to Dev
+  if: github.ref == 'refs/heads/master'
+  uses: mammutmw/usc
+  with:
+    aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
+    aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+    cmd: 'upload'
+    src: 'build'
+    target: 'my-target'
+    verbose: 'true'
+    info_git: 'https://github.com/my-org/my-repo'
+    info_slack: '#project-slack-channel'
+    info_email: 'project@email.com'
+```
+
+
 ### Example workflow
 
-```
+Here's a full example, [usc-github-action-example](https://github.com/ingka-group-digital/usc-github-action-example).
+
+```yaml
 # .github/workflows/main.yml
 name: Node build and deploy with USC
 on: [push]
@@ -77,6 +99,4 @@ jobs:
           info_slack: '#project-slack-channel'
           info_email: 'project@email.com'
 ```
-
-Here's a working example, [usc-github-action-example](https://github.com/ingka-group-digital/usc-github-action-example).
 
