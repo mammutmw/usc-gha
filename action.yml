@@ -1,0 +1,73 @@
+---
+name: 'usc'
+description: 'Upload files with the upload service client'
+inputs:
+  aws_access_key:
+    description: 'The AWS_ACCESS_KEY_ID'
+    required: true
+  aws_secret_access_key:
+    description: 'The AWS_SECRET_ACCESS_KEY'
+    required: true
+  cmd:
+    description: 'The command to run'
+    required: true
+    default: 'upload'
+  debug:
+    description: 'Debug output'
+    required: false
+    default: 'false'
+  src:
+    description: 'root directory of files'
+    required: true
+  dry:
+    description: 'dry run, only output files to be uploaded'
+    required: false
+    default: 'false'
+  files:
+    description: 'Comma-separated list of files to wait upload'
+    required: false
+    default: ''
+  target:
+    description: 'The target site and (optionally) directory'
+    required: false
+  timeout:
+    description: 'timeout in seconds (default 60)'
+    required: false
+    default: '60'
+  verbose:
+    description: 'verbose output'
+    required: false
+    default: 'true'
+  wait:
+    description: 'wait until files are uploaded'
+    required: false
+    default: 'false'
+  info_git:
+    description: 'Git repository of this project'
+    required: false
+  info_slack:
+    description: 'Slack channel of this project'
+    required: false
+  info_email:
+    description: 'Email address of this project or person responsible'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'ghcr.io/mammutmw/usc'
+  env:
+    AWS_ACCESS_KEY_ID: ${{inputs.aws_access_key}}
+    AWS_SECRET_ACCESS_KEY: ${{inputs.aws_secret_access_key}}
+  args:
+    - '${{inputs.cmd}}'
+    - '--debug=${{inputs.debug}}'
+    - '--src=${{inputs.src}}'
+    - '--dry=${{inputs.dry}}'
+    - '--files=${{inputs.files}}'
+    - '--target=${{inputs.target}}'
+    - '--timeout=${{inputs.timeout}}'
+    - '--verbose=${{inputs.verbose}}'
+    - '--wait=${{inputs.wait}}'
+    - '--info-git=${{inputs.info_git}}'
+    - '--info-slack=${{inputs.info_slack}}'
+    - '--info-email=${{inputs.info_email}}'
