@@ -1,6 +1,8 @@
 ---
 name: 'mammutmw/usc'
 description: 'Upload files with the upload service client'
+icon: 'upload'
+color: 'red'
 inputs:
   aws_access_key:
     description: 'The AWS_ACCESS_KEY_ID'
