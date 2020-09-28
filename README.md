@@ -30,7 +30,6 @@ A Github action for using the upload service client, `usc`.
     info_email: 'project@email.com'
 ```
 
-
 ### Example workflow
 
 Here's a full example, [usc-github-action-example](https://github.com/ingka-group-digital/usc-github-action-example).
@@ -99,4 +98,23 @@ jobs:
           info_slack: '#project-slack-channel'
           info_email: 'project@email.com'
 ```
+
+### Parameters
+
+| Name | Description | Default |
+-------|-------------|----------|
+| aws_access_key | The AWS_ACCESS_KEY_ID | required |
+| aws_secret_access_key | 'The AWS_SECRET_ACCESS_KEY' | required |
+| cmd | 'The command to run' | 'upload' |
+| debug | 'Debug output' | false |
+| src | 'root directory of files' | required |
+| dry | 'dry run, only output files to be uploaded' | false |
+| files | 'Comma-separated list of files to wait upload' | optional |
+| target | 'The target site and (optionally) directory' | required |
+| timeout | 'timeout in seconds' | 60 |
+| verbose | 'verbose output' | true |
+| wait | 'wait until files are uploaded' | false |
+| info_git | 'Git repository of this project' | optional |
+| info_slack | 'Slack channel of this project' | optional |
+| info_email | 'Email address of this project or person responsible' | optional |
 
