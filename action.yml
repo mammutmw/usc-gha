@@ -1,5 +1,5 @@
 ---
-name: 'usc'
+name: 'mammutmw/usc'
 description: 'Upload files with the upload service client'
 inputs:
   aws_access_key:
