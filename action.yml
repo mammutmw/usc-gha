@@ -57,7 +57,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'ghcr.io/mammutmw/usc'
+  image: 'docker://ghcr.io/mammutmw/usc'
   env:
     AWS_ACCESS_KEY_ID: ${{inputs.aws_access_key}}
     AWS_SECRET_ACCESS_KEY: ${{inputs.aws_secret_access_key}}
