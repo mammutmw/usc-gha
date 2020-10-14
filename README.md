@@ -17,7 +17,7 @@ A Github action for using the upload service client, `usc`.
 # Deploy contents of build directory to dev
 - name: Deploy to Dev
   if: github.ref == 'refs/heads/master'
-  uses: mammutmw/usc-gha@v1.0.0
+  uses: mammutmw/usc-gha@v1.1.0
   with:
     aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
     aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
@@ -114,4 +114,7 @@ jobs:
 | info_git | 'Git repository of this project' | optional |
 | info_slack | 'Slack channel of this project' | optional |
 | info_email | 'Email address of this project or person responsible' | optional |
-
+| newer | Files must be newer than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go' | optional |
+| older | Files must be older than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go' | optional |
+| includes | Files must match this regexp | optional |
+| excludes | Files must NOT match this regexp | optional |
