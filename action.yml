@@ -70,6 +70,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://ghcr.io/mammutmw/usc'
+  entrypoint: './entrypoint.sh'
   env:
     AWS_ACCESS_KEY_ID: ${{inputs.aws_access_key}}
     AWS_SECRET_ACCESS_KEY: ${{inputs.aws_secret_access_key}}
