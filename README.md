@@ -105,6 +105,7 @@ jobs:
 | cmd | 'The command to run' | 'upload' |
 | debug | 'Debug output' | false |
 | src | 'root directory of files' | required |
+| ignore_empty | 'ignore errors cause by empty file list' | false |
 | dry | 'dry run, only output files to be uploaded' | false |
 | files | 'Comma-separated list of files to wait upload' | optional |
 | target | 'The target site and (optionally) directory' | required |
