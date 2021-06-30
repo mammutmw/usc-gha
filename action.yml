@@ -58,6 +58,12 @@ inputs:
   info_email:
     description: 'Email address of this project or person responsible'
     required: false
+  info_team:
+    description: 'Team of this project'
+    required: false
+  info_product:
+    description: 'Product of this project'
+    required: false
   newer:
     description: 'Files must be newer than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go'
     required: false
@@ -91,6 +97,8 @@ runs:
     - '--info-git=${{inputs.info_git}}'
     - '--info-slack=${{inputs.info_slack}}'
     - '--info-email=${{inputs.info_email}}'
+    - '--info-team=${{inputs.info_team}}'
+    - '--info-product=${{inputs.info_product}}'
     - '--newer=${{inputs.newer}}'
     - '--older=${{inputs.older}}'
     - '--includes=${{inputs.includes}}'

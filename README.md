@@ -27,6 +27,8 @@ A Github action for using the upload service client, `usc`.
     info_git: 'https://github.com/my-org/my-repo'
     info_slack: '#project-slack-channel'
     info_email: 'project@email.com'
+    info_team: 'team-name'
+    info_product: 'product'
 ```
 
 ### Example workflow
@@ -80,6 +82,8 @@ jobs:
           info_git: 'https://github.com/my-org/my-repo'
           info_slack: '#project-slack-channel'
           info_email: 'project@email.com'
+          info_team: 'team-name'
+          info_product: 'product'
 
         # Deploy contents of build directory prod
       - name: Deploy to PROD
@@ -94,6 +98,8 @@ jobs:
           info_git: 'https://github.com/my-org/my-repo'
           info_slack: '#project-slack-channel'
           info_email: 'project@email.com'
+          info_team: 'team-name'
+          info_product: 'product'
 ```
 
 ### Parameters
@@ -115,6 +121,8 @@ jobs:
 | info_git | 'Git repository of this project' | optional |
 | info_slack | 'Slack channel of this project' | optional |
 | info_email | 'Email address of this project or person responsible' | optional |
+| info_team | 'Team of this project' | optional |
+| info_product | 'Product of this project' | optional |
 | newer | Files must be newer than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go' | optional |
 | older | Files must be older than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go' | optional |
 | includes | Files must match this regexp | optional |
