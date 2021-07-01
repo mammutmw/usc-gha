@@ -59,10 +59,10 @@ inputs:
     description: 'Email address of this project or person responsible'
     required: false
   info_team:
-    description: 'Team of this project'
+    description: 'Team name of this project'
     required: false
   info_product:
-    description: 'Product of this project'
+    description: 'Product name of this project'
     required: false
   newer:
     description: 'Files must be newer than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go'
