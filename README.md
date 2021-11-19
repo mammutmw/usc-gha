@@ -10,25 +10,24 @@ A Github action for using the upload service client, `usc`.
 - Push it, then watch the Action tab on Github.
 - Debug whatever problems you get.
 
-
 ### Action
 
 ```yaml
 # Deploy contents of build directory to dev
 - name: Deploy to Dev
   if: github.ref == 'refs/heads/master'
-  uses: mammutmw/usc-gha@v1.1.5
+  uses: mammutmw/usc-gha@latest
   with:
     aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
     aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-    cmd: 'upload'
-    src: 'build'
-    target: 'my-target'
-    info_git: 'https://github.com/my-org/my-repo'
-    info_slack: '#project-slack-channel'
-    info_email: 'project@email.com'
-    info_team: 'team-name'
-    info_product: 'product-name'
+    cmd: "upload"
+    src: "build"
+    target: "my-target"
+    info_git: "https://github.com/my-org/my-repo"
+    info_slack: "#project-slack-channel"
+    info_email: "project@email.com"
+    info_team: "team-name"
+    info_product: "product-name"
 ```
 
 ### Example workflow
@@ -47,7 +46,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: "12.x"
       - name: Dump GitHub context, for debugging
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -72,58 +71,58 @@ jobs:
         # Deploy contents of build directory to dev
       - name: Deploy to CTE
         if: github.ref == 'refs/heads/master'
-        uses: mammutmw/usc-gha@v1.1.5
+        uses: mammutmw/usc-gha@latest
         with:
           aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          cmd: 'upload'
-          src: 'build'
-          target: 'my-target'
-          info_git: 'https://github.com/my-org/my-repo'
-          info_slack: '#project-slack-channel'
-          info_email: 'project@email.com'
-          info_team: 'team-name'
-          info_product: 'product-name'
+          cmd: "upload"
+          src: "build"
+          target: "my-target"
+          info_git: "https://github.com/my-org/my-repo"
+          info_slack: "#project-slack-channel"
+          info_email: "project@email.com"
+          info_team: "team-name"
+          info_product: "product-name"
 
         # Deploy contents of build directory prod
       - name: Deploy to PROD
         if: github.ref == 'refs/heads/release'
-        uses: mammutmw/usc-gha@v1.1.5
+        uses: mammutmw/usc-gha@latest
         with:
           aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_ACCESS_KEY_SECRET}}
-          cmd: 'upload'
-          src: 'build'
-          target: 'my-prod-target'
-          info_git: 'https://github.com/my-org/my-repo'
-          info_slack: '#project-slack-channel'
-          info_email: 'project@email.com'
-          info_team: 'team-name'
-          info_product: 'product-name'
+          cmd: "upload"
+          src: "build"
+          target: "my-prod-target"
+          info_git: "https://github.com/my-org/my-repo"
+          info_slack: "#project-slack-channel"
+          info_email: "project@email.com"
+          info_team: "team-name"
+          info_product: "product-name"
 ```
 
 ### Parameters
 
-| Name | Description | Default |
--------|-------------|----------|
-| aws_access_key | The AWS_ACCESS_KEY_ID | required |
-| aws_secret_access_key | 'The AWS_SECRET_ACCESS_KEY' | required |
-| cmd | 'The command to run' | 'upload' |
-| debug | 'Debug output' | false |
-| src | 'root directory of files' | required |
-| ignore_empty | 'ignore errors cause by empty file list' | false |
-| dry | 'dry run, only output files to be uploaded' | false |
-| files | 'Comma-separated list of files to wait upload' | optional |
-| target | 'The target site and (optionally) directory' | required |
-| timeout | 'timeout in seconds' | 60 |
-| verbose | 'verbose output' | true |
-| wait | 'wait until files are uploaded' | false |
-| info_git | 'Git repository of this project' | optional |
-| info_slack | 'Slack channel of this project' | optional |
-| info_email | 'Email address of this project or person responsible' | optional |
-| info_team | 'Team name of this project' | optional |
-| info_product | 'Product name of this project' | optional |
-| newer | Files must be newer than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go' | optional |
-| older | Files must be older than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go' | optional |
-| includes | Files must match this regexp | optional |
-| excludes | Files must NOT match this regexp | optional |
+| Name                  | Description                                                                                                       | Default  |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- | -------- |
+| aws_access_key        | The AWS_ACCESS_KEY_ID                                                                                             | required |
+| aws_secret_access_key | 'The AWS_SECRET_ACCESS_KEY'                                                                                       | required |
+| cmd                   | 'The command to run'                                                                                              | 'upload' |
+| debug                 | 'Debug output'                                                                                                    | false    |
+| src                   | 'root directory of files'                                                                                         | required |
+| ignore_empty          | 'ignore errors cause by empty file list'                                                                          | false    |
+| dry                   | 'dry run, only output files to be uploaded'                                                                       | false    |
+| files                 | 'Comma-separated list of files to wait upload'                                                                    | optional |
+| target                | 'The target site and (optionally) directory'                                                                      | required |
+| timeout               | 'timeout in seconds'                                                                                              | 60       |
+| verbose               | 'verbose output'                                                                                                  | true     |
+| wait                  | 'wait until files are uploaded'                                                                                   | false    |
+| info_git              | 'Git repository of this project'                                                                                  | optional |
+| info_slack            | 'Slack channel of this project'                                                                                   | optional |
+| info_email            | 'Email address of this project or person responsible'                                                             | optional |
+| info_team             | 'Team name of this project'                                                                                       | optional |
+| info_product          | 'Product name of this project'                                                                                    | optional |
+| newer                 | Files must be newer than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go' | optional |
+| older                 | Files must be older than this date, format: https://github.com/tj/go-naturaldate/blob/master/naturaldate_test.go' | optional |
+| includes              | Files must match this regexp                                                                                      | optional |
+| excludes              | Files must NOT match this regexp                                                                                  | optional |
