@@ -117,6 +117,7 @@ jobs:
 | timeout               | 'timeout in seconds'                                                                                              | 60       |
 | verbose               | 'verbose output'                                                                                                  | true     |
 | wait                  | 'wait until files are uploaded'                                                                                   | false    |
+| recursive             | 'Recursively include sub directories'                                                                                | false    |
 | info_git              | 'Git repository of this project'                                                                                  | optional |
 | info_slack            | 'Slack channel of this project'                                                                                   | optional |
 | info_email            | 'Email address of this project or person responsible'                                                             | optional |
