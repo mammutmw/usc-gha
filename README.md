@@ -16,7 +16,7 @@ A Github action for using the upload service client, `usc`.
 # Deploy contents of build directory to dev
 - name: Deploy to Dev
   if: github.ref == 'refs/heads/master'
-  uses: mammutmw/usc-gha@latest
+  uses: ingka-group-digital/usc-gha@latest
   with:
     aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
     aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
@@ -71,7 +71,7 @@ jobs:
         # Deploy contents of build directory to dev
       - name: Deploy to CTE
         if: github.ref == 'refs/heads/master'
-        uses: mammutmw/usc-gha@latest
+        uses: ingka-group-digital/usc-gha@latest
         with:
           aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
@@ -87,7 +87,7 @@ jobs:
         # Deploy contents of build directory prod
       - name: Deploy to PROD
         if: github.ref == 'refs/heads/release'
-        uses: mammutmw/usc-gha@latest
+        uses: ingka-group-digital/usc-gha@latest
         with:
           aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_ACCESS_KEY_SECRET}}
