@@ -1,5 +1,7 @@
 # usc-gha
 
+:warning: Deprecated, use to https://github.com/ingka-group-digital/usc-gha
+
 A Github action for using the upload service client, `usc`.
 
 ## Setup
